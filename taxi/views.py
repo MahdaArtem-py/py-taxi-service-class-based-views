@@ -22,12 +22,13 @@ class ManufacturerListView(generic.ListView):
     paginate_by = 5
 
 
-def manufacturer_detail(request, manufacturer_id):
-    manufacturer = get_object_or_404(Manufacturer, id=manufacturer_id)
-    context = {
-        "manufacturer": manufacturer,
-    }
-    return render(request, "taxi/manufacturer_detail.html", context)
+class ManufacturerDetailView(generic.DetailView):
+    model = Manufacturer
+    template_name = "taxi/manufacturer_detail.html"
+    context_object_name = 'manufacturer'
+
+    def get_object(self):
+        return super().get_object()
 
 
 class CarListView(generic.ListView):
