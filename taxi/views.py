@@ -25,7 +25,7 @@ class ManufacturerListView(generic.ListView):
 class ManufacturerDetailView(generic.DetailView):
     model = Manufacturer
     template_name = "taxi/manufacturer_detail.html"
-    context_object_name = 'manufacturer'
+    context_object_name = "manufacturer"
 
     def get_object(self):
         return super().get_object()
